@@ -1,0 +1,94 @@
+.studentform
+{
+    flex: 6;
+    box-shadow: 0px 0px 5px 0px gray;
+    background-color: gainsboro;
+    margin-top: 80px;
+    border-radius: 10px;
+    padding: 10px 40px;
+    flex-shrink: 3;
+    width: 25%;
+    align-self: center;
+   
+}
+.input1
+{
+    height: 40px;
+    width: 280px;
+    text-decoration: none;
+    border-radius: 10px;
+    flex-shrink: 3;
+    background-color: transparent;
+    border: 1px solid gray;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    margin-top: -15px;
+}
+td
+{
+    height: 40px;
+}
+.submit
+{
+ height: 40px;
+ width: 150px;
+ cursor: pointer;
+ border-radius: 10px;
+ background-color: green;
+ border: none;
+ flex-shrink: 3;
+ color: white;
+
+}
+.submit:hover
+{
+  
+  border: none;
+  color: white;
+ 
+}
+.pagename
+{
+    height: 80px;
+    background-color: green;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    padding-left: 50px;
+    box-shadow: 0px 0px 5px 0px gray;
+    flex-shrink: 3;
+}
+.maine
+{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 3;
+}
+h1{
+    color: white;
+}
+
+tr td{
+    display: flex;
+    align-self: center;
+}
+
+.tablehead
+{
+    background-color: gray;
+    height: 50px;
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    color: aliceblue;
+    padding-right: 15px;
+   
+}
+.fa-xmark
+{
+    float: right;
+    margin-right: -30px;
+}

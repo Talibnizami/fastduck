@@ -1,0 +1,81 @@
+.customershow
+{
+    flex: 6;
+
+  
+    margin-top: 80px;
+    border-radius: 10px;
+    padding: 10px 40px;
+    flex-shrink: 3;
+    width: 90%;
+    align-self: center;
+    flex-shrink: 3;
+    display:flex ;
+    flex-direction: row;
+    justify-content: space-evenly;
+   
+}
+.card{
+    height: 300px;
+    width: 240px;
+    box-shadow: 0 2px 4px gray, 0 8px 16px gray;
+    background-color: white;
+    border-radius: 15px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding: 10px ;
+    color: black;
+}
+.cardad
+{
+    height: 150px;
+    width: 240px;
+    box-shadow: 0 2px 4px gray, 0 8px 16px gray;
+    background-color: white;
+    border-radius: 15px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding: 10px ;
+    color: black;
+}
+.car
+{
+    margin-right: 8px;
+    color: green;
+}
+.map
+{
+    height: 100%;
+    width: 100%;
+}
+.adres
+{
+align-self: center;
+}
+.addbtn
+{
+    margin-left: 40%;
+    margin-top: 55px;
+    align-self: center;
+}
+.settingform
+{
+    flex: 5;
+    box-shadow: 0px 0px 5px 0px gray;
+    margin-top: 80px;
+    border-radius: 10px;
+    padding: 10px 40px;
+    flex-shrink: 3;
+    width: 25%;
+    align-self: center;
+   
+}
+.titleable
+
+{
+    background-color: green;
+}

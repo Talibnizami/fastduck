@@ -1,0 +1,138 @@
+
+        a
+        {
+            cursor: pointer;
+        }
+        #img
+        {
+            margin-left: 40px;
+            margin-bottom: 30px;
+        }
+        .imglogom
+    {
+        height: 180px;
+        margin-left: 50px;
+    }
+        .logbody
+        {
+            height: 100vh;
+        
+            background-color:white;
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            flex-shrink: 3;
+        }
+        .createtext
+        {
+        text-decoration: none;
+        color: white;
+        }
+        #createuser
+        {
+            font-family: inherit;
+            border-radius: 6px;
+            font-size: 17px;
+            margin-top: 15px;
+            background-color: green;
+            border: 1px solid #dddfe2;
+            height: 50px;
+            width: 200px;
+            font-weight: bold;
+            flex-shrink: 3;
+        }
+        #pass
+        {
+            margin-top: -20px;
+        }
+        #email
+        {
+            margin-top: 20px;
+        }
+        #logbtn
+        {
+            text-decoration: none;
+            color: white;
+        }
+        #botminner
+        {
+            width: 90%;
+            height: 1px;
+            border-bottom: 1px solid #dddfe2;
+            margin-top: 15px;
+        }
+        .first
+        {
+flex: 4;
+height: 45%;
+flex-shrink: 3;
+margin-left: 11%;
+        }
+        #forgt
+        {
+            margin-top: 20px;
+            color: green;
+        }
+        #lib
+        {
+            margin-top: -20px;
+            border-radius: 6px;
+            font-size: 17px;
+            padding: 14px 16px;
+            width: 330px;
+            background-color: green;
+             border: 1px solid #dddfe2;
+             height: 50px;
+             line-height: 16px;
+             vertical-align: middle;
+             flex-shrink: 3;
+        }
+        #ld
+        {
+            flex: 0.5;
+            flex-shrink: 3;
+        }
+ .secound
+        {
+           
+flex: 2.5;
+height: 55%;
+background-color: white;;
+margin-right: 12%;
+margin-left: 20px;
+border-radius: 10px;
+display: flex;
+align-items: center;
+flex-shrink: 3;
+flex-direction: column;
+box-shadow: 0 2px 4px gray, 0 8px 16px gray;
+        }
+        #par
+        {
+            font-size: 28px;
+    line-height: 28px;
+    margin-left: 30px;
+    flex-shrink: 3;
+        }
+        #img
+        {
+            height: 106px;
+   
+        }
+        .input2
+        {
+            font-family: inherit;
+            border-radius: 6px;
+            font-size: 17px;
+            flex-shrink: 3;
+    padding: 14px 16px;
+    width: 330px;
+    background-color: transparent;
+    border: 1px solid #dddfe2;
+    height: 50px;
+    line-height: 16px;
+    vertical-align: middle;
+        }
+
+        
+       
