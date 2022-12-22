@@ -13,6 +13,7 @@
 }
 .input1
 {
+    display: flex;
     height: 40px;
     width: 280px;
     text-decoration: none;

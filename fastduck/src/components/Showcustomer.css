@@ -1,22 +1,20 @@
 .customershow
 {
     flex: 6;
-
-  
     margin-top: 80px;
     border-radius: 10px;
     padding: 10px 40px;
     flex-shrink: 3;
     width: 90%;
     align-self: center;
-    flex-shrink: 3;
+   
     display:flex ;
     flex-direction: row;
     justify-content: space-evenly;
    
 }
 .card{
-    height: 300px;
+    height: 250px;
     width: 240px;
     box-shadow: 0 2px 4px gray, 0 8px 16px gray;
     background-color: white;
@@ -27,6 +25,7 @@
     align-items: flex-start;
     padding: 10px ;
     color: black;
+    flex-shrink: 3;
 }
 .cardad
 {
@@ -41,6 +40,7 @@
     align-items: flex-start;
     padding: 10px ;
     color: black;
+    flex-shrink: 3;
 }
 .car
 {
