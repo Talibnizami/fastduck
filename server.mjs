@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 const app = express();
-mongoose.set('strictQuery', false);
+mongoose.set("strictQuery", false);
 const port = process.env.PORT || 5001;
 const mongodbURI =
   process.env.mongodbURI ||
@@ -11,20 +11,33 @@ const mongodbURI =
 app.use(cors());
 app.use(express.json());
 
-
-
 // Address
 const AddressSchema = new mongoose.Schema({
-  address: { type: String, required: true, trim: true },  
-})
-const addressModal = mongoose.model('Address', AddressSchema)
+  address: { type: String, required: true, trim: true },
+});
+const addressModal = mongoose.model("Address", AddressSchema);
+
+
+// History
+
+let historySchema = new mongoose.Schema({
+  customername: { type: String, required: true },
+  phone: Number,
+  customerid: Number,
+  email: String,
+  notes: String,
+  createdOn: { type: Date, default: Date.now },
+});
+const historyModel = mongoose.model("historyCustomer", historySchema);
+
+
 
 
 app.post("/setAddress", (req, res) => {
   var a = new addressModal({
     address: req.body.address,
   });
-  // console.log(a)
+
   a.save()
     .then((res) => {
       console.log(res, a);
@@ -50,19 +63,6 @@ app.get("/getAddress", (req, res) => {
   });
 });
 
-// History 
-
-let historySchema = new mongoose.Schema({
-  customername: { type: String, required: true },
-  phone: Number,
-  customerid: Number,
-  email: String,
-  notes: String,
-  createdOn: { type: Date, default: Date.now },
-});
-const historyModel = mongoose.model("historyCustomer", historySchema);
-
-
 
 // Customer
 
@@ -77,15 +77,14 @@ let customerSchema = new mongoose.Schema({
 const customerModel = mongoose.model("customers", customerSchema);
 
 app.post("/customerData", (req, res) => {
-  var a = new customerModel({
+  var b = new customerModel({
     customername: req.body.customername,
     phone: req.body.phone,
     notes: req.body.notes,
     email: req.body.email,
     customerid: req.body.customerid,
   });
-  // console.log(a)
-  a.save()
+  b.save()
     .then((res) => {
       console.log(res, a);
       res.send(res);
@@ -93,23 +92,10 @@ app.post("/customerData", (req, res) => {
     .catch((err) => {
       res.send(err);
     });
-    var customerHistory  = new historyModel({
-      customername: req.body.customername,
-      phone: req.body.phone,
-      notes: req.body.notes,
-      email: req.body.email,
-      customerid: req.body.customerid,
-    });
-    // console.log(a)
-    customerHistory.save()
-      .then((res) => {
-        console.log(res, customerHistory);
-        res.send(res);
-      })
-      .catch((err) => {
-        res.send(err);
-      });
 });
+
+
+
 
 app.get("/customers", (req, res) => {
   customerModel.find({}, (err, data) => {
@@ -150,11 +136,7 @@ app.delete("/customer/:id", (req, res) => {
   });
 });
 
-
-
-
 // History  api
-
 
 app.get("/historyCustomer", (req, res) => {
   historyModel.find({}, (err, data) => {
@@ -170,9 +152,6 @@ app.get("/historyCustomer", (req, res) => {
     }
   });
 });
-
-
-
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

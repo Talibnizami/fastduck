@@ -6,15 +6,15 @@ import axios from "axios";
 function Addlocation() {
   const [saveBtn, setSaveBtn] = useState("");
   const[Address, setAddress] = useState(false)
-  const [loadProduct, setLoadProduct] = useState(false)
+  const [loadProduct, setLoadProduct] = useState(true)
  const sendData = async () => {
     try {
-      setLoadProduct(!loadProduct)
       var userAddress = await axios.post(`http://localhost:5001/setAddress`, {
         address: saveBtn,
       });
-      console.log(userAddress);
+      setLoadProduct(!loadProduct)
     } catch (error) {
+      setLoadProduct(!loadProduct)
       console.log(error);
     }
   };
@@ -34,8 +34,6 @@ function Addlocation() {
       getAdress()
     }
 }, [loadProduct])
-
-  // console.log(Address ,  `Adddres`)
   return (
     <>
       <div className="maine">

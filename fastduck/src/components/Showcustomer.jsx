@@ -73,7 +73,7 @@ const deleteData = async (id)=>{
             </div>
               <button className="btn btn-success" onClick={()=>{
                deleteData(eachProduct._id) 
-              }}  >Delete</button>
+              }}  >Completed</button>
           </div>
 )) } 
 

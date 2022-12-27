@@ -117,6 +117,7 @@
   },
   "devDependencies": {},
   "scripts": {
+    "dev" : "node --watch server.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -128,5 +129,6 @@
   "bugs": {
     "url": "https://github.com/Talibnizami/fastduck/issues"
   },
-  "homepage": "https://github.com/Talibnizami/fastduck#readme"
+  "homepage": "https://github.com/Talibnizami/fastduck#readme",
+  "keywords": []
 }
