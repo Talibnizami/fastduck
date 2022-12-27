@@ -6,6 +6,8 @@ import Addlocation from "./components/Addlocation";
 import Set from "./components/Set";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./components/login";
+import History from "./components/History";
+
 
 function App() {
   return (
@@ -33,7 +35,17 @@ function App() {
               </div>
             }
           />
-          
+          <Route
+            path="history"
+            element={
+              <div className="main">
+                <Sidebar />
+                <div className="homecontent">
+                  <History/>
+                </div>
+              </div>
+            }
+          />
           <Route
           path="addcustomer"
           element={
@@ -80,6 +92,7 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
+
    
     
   );

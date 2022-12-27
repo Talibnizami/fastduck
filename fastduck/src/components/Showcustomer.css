@@ -7,15 +7,17 @@
     flex-shrink: 3;
     width: 90%;
     align-self: center;
-   
+   flex-wrap: wrap;
     display:flex ;
     flex-direction: row;
     justify-content: space-evenly;
+    overflow-y: auto;
+    padding-bottom: 30px;
    
 }
 .card{
-    height: 250px;
-    width: 240px;
+    height: 300px;
+    width: 260px;
     box-shadow: 0 2px 4px gray, 0 8px 16px gray;
     background-color: white;
     border-radius: 15px ;
@@ -23,14 +25,14 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: flex-start;
-    padding: 10px ;
+    padding: 30px ;
     color: black;
     flex-shrink: 3;
 }
 .cardad
 {
     height: 150px;
-    width: 240px;
+    width: 210px;
     box-shadow: 0 2px 4px gray, 0 8px 16px gray;
     background-color: white;
     border-radius: 15px ;
@@ -38,9 +40,10 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: flex-start;
-    padding: 10px ;
+    padding-left: 20px ;
     color: black;
     flex-shrink: 3;
+    margin-top: 20px;
 }
 .car
 {
@@ -70,7 +73,6 @@ align-self: center;
     border-radius: 10px;
     padding: 10px 40px;
     flex-shrink: 3;
-    width: 25%;
     align-self: center;
    
 }
@@ -78,4 +80,13 @@ align-self: center;
 
 {
     background-color: green;
+}
+.btn-success
+{
+    margin-top: 10px;
+}
+.card 
+{
+    line-height: 45px;
+    margin-top: 30px;
 }

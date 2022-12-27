@@ -1,9 +1,9 @@
 {
   "name": "fastduck-backend",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "server.mjs",
   "scripts": {
+    "dev": "node --watch server.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -16,5 +16,16 @@
     "mongoose": "^6.8.1",
     "path": "^0.12.7",
     "yup": "^0.32.11"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Talibnizami/fastduck.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/Talibnizami/fastduck/issues"
+  },
+  "homepage": "https://github.com/Talibnizami/fastduck#readme",
+  "description": ""
 }

@@ -5,41 +5,41 @@ import axios from "axios";
 
 function Addcustomer() {
 
-//   var editingcustomer;
-
-const [loadcustomer, setLoadcustomer] = useState(false)
-const [editingProduct, setEditingProduct] = useState(null)
 
 let [Name,setName] = useState('');
 let [Notes,setNotes] = useState('');
 let [Email,setEmail] = useState('');
 let [Phone,setPhone] = useState('');
 let [idnt,setidnt] = useState('');
-const getdata=(event)=>
+
+
+const getdata= async (event)=>
 {
 event.preventDefault();
 
-axios.post(`http://localhost:5001/customer`, {
-      customername:Name,
-      phone: Phone,
-      notes: Notes,
-      email: Email,
-      customerid:idnt,
-     
-    })
-      .then(response => {
-        console.log("response: ", response.data);
-        setLoadcustomer(!loadcustomer);
-        
+alert(`Customer Added Succesfully!`)
 
-      })
-      .catch(err => {
-        console.log("error: ", err);
-      })
+try {
+  var a=await  axios.post(`http://localhost:5001/customerData`, {
+         customername:Name,
+        phone: Phone,
+        notes: Notes,
+        email: Email,
+        customerid:idnt,
+         
+       })
+       console.log(a);
 
 
 
-console.log(Name)
+
+} catch (error) {
+  console.log(error)
+}
+
+
+
+
 }
   return (
     <>
@@ -55,7 +55,7 @@ console.log(Name)
        <div className='tablehead'> <th>ADD CUSTOMER WAIT LIST</th>  <i className="fa-solid fa-xmark"></i></div>
    <tr>
     <td><span> Customeer Name:</span> </td>
-     <td><input  className="input1"  placeholder='Customer name'  onChange={(e)=>
+     <td><input  id='empty' className="input1"  placeholder='Customer name'  onChange={(e)=>
         {
           setName(e.target.value)
         }
@@ -64,7 +64,7 @@ console.log(Name)
    </tr>
    <tr>
     <td><span >Customer id:</span> </td>
-    <td><input className="input1" type="text" placeholder='Customer id'  
+    <td><input  id='empty1' className="input1" type="text" placeholder='Customer id'  
       onChange={(e)=>
         {
           setidnt(e.target.value)
@@ -72,7 +72,7 @@ console.log(Name)
       }/></td></tr>
    <tr>
     <td><span>Phone:</span> </td>
-     <td><input  className="input1" type="text" placeholder='Phone' 
+     <td><input  id='empty2'  className="input1" type="text" placeholder='Phone' 
        onChange={(e)=>
         {
           setPhone(e.target.value)
@@ -81,7 +81,7 @@ console.log(Name)
    </tr>
    <tr>  
      <td><span>Email:</span> </td>
-     <td><input  className="input1" type="email" placeholder='Email'
+     <td><input  id='empty3'  className="input1" type="email" placeholder='Email'
        onChange={(e)=>
         {
           setEmail(e.target.value)
@@ -90,7 +90,7 @@ console.log(Name)
    <tr/>
    <tr>
     <td><span>Notes:</span></td>
-    <td> <input  className="input1" type="text" placeholder='Notes'
+    <td> <input  id='empty4'  className="input1" type="text" placeholder='Notes'
       onChange={(e)=>
         {
           setNotes(e.target.value)

@@ -1,119 +1,212 @@
-import express from 'express';
-import path from 'path';
-import cors from 'cors';
-import mongoose from 'mongoose';
-
-const app = express()
+import express from "express";
+import cors from "cors";
+import mongoose from "mongoose";
+const app = express();
+mongoose.set('strictQuery', false);
 const port = process.env.PORT || 5001;
-const mongodbURI = process.env.mongodbURI || "mongodb+srv://dbuser:dbpassword@cluster0.pbmbzaw.mongodb.net/?retryWrites=true&w=majority";
+const mongodbURI =
+  process.env.mongodbURI ||
+  "mongodb+srv://task:1234@task.p3qevca.mongodb.net/?retryWrites=true&w=majority";
 
 app.use(cors());
 app.use(express.json());
 
 
 
-let customerSchema = new mongoose.Schema({
-    customername: { type: String, required: true },
-    phone: Number,
-    customerid: Number,
-    email: String,
-    notes: String,
-    createdOn: { type: Date, default: Date.now }
-});
-const customerModel = mongoose.model('customers', customerSchema);
-
-
-
-
-
-app.post('/customer', (req, res) => {
-
-    const body = req.body;
-
-    // if ( // validation
-    //     !body.customername
-    //     || !body.phone
-    //     || !body.email
-    //     || !body.notes
-    //     || !body.customerid
-    // ) {
-    //     res.status(400).send({
-    //         message: "required parameters missing",
-    //     });
-    //     return;
-    // }
-
-    console.log(body.customername)
-    // console.log(body.phone)
-    // console.log(body.notes)
-    // console.log(body.email)
-    // console.log(body.customerid)
-
-    customerModel.create({
-        customername: body.customername,
-        // phone: body.phone,
-        // notes: body.notes,
-        // email: body.email,
-        // customerid: body.customerid,
-    },
-        (err, saved) => {
-            if (!err) {
-                console.log(saved);
-
-                res.send({
-                    message: "customer added successfully"
-                });
-            } else {
-                res.status(500).send({
-                    message: "server error"
-                })
-            }
-        })
+// Address
+const AddressSchema = new mongoose.Schema({
+  address: { type: String, required: true, trim: true },  
 })
+const addressModal = mongoose.model('Address', AddressSchema)
 
-// app.get('/customers', (req, res) => {
 
-//     customerModel.find({}, (err, data) => {
-//         if (!err) {
-//             res.send({
-//                 message: "got all cutomers successfully",
-//                 data: data
-//             })
-//         } else {
-//             res.status(500).send({
-//                 message: "server error"
-//             })
-//         }
-//     });
-// })
+app.post("/setAddress", (req, res) => {
+  var a = new addressModal({
+    address: req.body.address,
+  });
+  // console.log(a)
+  a.save()
+    .then((res) => {
+      console.log(res, a);
+      res.send(res);
+    })
+    .catch((err) => {
+      res.send(err);
+    });
+});
+
+app.get("/getAddress", (req, res) => {
+  addressModal.find({}, (err, data) => {
+    if (!err) {
+      res.send({
+        message: "got all Address successfully",
+        data: data,
+      });
+    } else {
+      res.status(500).send({
+        message: "server error",
+      });
+    }
+  });
+});
+
+// History 
+
+let historySchema = new mongoose.Schema({
+  customername: { type: String, required: true },
+  phone: Number,
+  customerid: Number,
+  email: String,
+  notes: String,
+  createdOn: { type: Date, default: Date.now },
+});
+const historyModel = mongoose.model("historyCustomer", historySchema);
+
+
+
+// Customer
+
+let customerSchema = new mongoose.Schema({
+  customername: { type: String, required: true },
+  phone: Number,
+  customerid: Number,
+  email: String,
+  notes: String,
+  createdOn: { type: Date, default: Date.now },
+});
+const customerModel = mongoose.model("customers", customerSchema);
+
+app.post("/customerData", (req, res) => {
+  var a = new customerModel({
+    customername: req.body.customername,
+    phone: req.body.phone,
+    notes: req.body.notes,
+    email: req.body.email,
+    customerid: req.body.customerid,
+  });
+  // console.log(a)
+  a.save()
+    .then((res) => {
+      console.log(res, a);
+      res.send(res);
+    })
+    .catch((err) => {
+      res.send(err);
+    });
+    var customerHistory  = new historyModel({
+      customername: req.body.customername,
+      phone: req.body.phone,
+      notes: req.body.notes,
+      email: req.body.email,
+      customerid: req.body.customerid,
+    });
+    // console.log(a)
+    customerHistory.save()
+      .then((res) => {
+        console.log(res, customerHistory);
+        res.send(res);
+      })
+      .catch((err) => {
+        res.send(err);
+      });
+});
+
+app.get("/customers", (req, res) => {
+  customerModel.find({}, (err, data) => {
+    if (!err) {
+      res.send({
+        message: "got all cutomers successfully",
+        data: data,
+      });
+    } else {
+      res.status(500).send({
+        message: "server error",
+      });
+    }
+  });
+});
+
+app.delete("/customer/:id", (req, res) => {
+  const id = req.params.id;
+
+  customerModel.deleteOne({ _id: id }, (err, deletedData) => {
+    console.log("deleted: ", deletedData);
+    if (!err) {
+      if (deletedData.deletedCount !== 0) {
+        res.send({
+          message: "Product has been deleted successfully",
+        });
+      } else {
+        res.status(404);
+        res.send({
+          message: "No Product found with this id: " + id,
+        });
+      }
+    } else {
+      res.status(500).send({
+        message: "server error",
+      });
+    }
+  });
+});
+
+
+
+
+// History  api
+
+// app.post("/customerData", (req, res) => {
+  
+// });
+
+app.get("/historyCustomer", (req, res) => {
+  historyModel.find({}, (err, data) => {
+    if (!err) {
+      res.send({
+        message: "got all cutomers successfully",
+        data: data,
+      });
+    } else {
+      res.status(500).send({
+        message: "server error",
+      });
+    }
+  });
+});
+
+
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-})
+  console.log(`Example app listening on port ${port}`);
+});
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 mongoose.connect(mongodbURI);
 
 ////////////////mongodb connected disconnected events///////////////////////////////////////////////
-mongoose.connection.on('connected', function () {//connected
-    console.log("Mongoose is connected");
+mongoose.connection.on("connected", function () {
+  //connected
+  console.log("Mongoose is connected");
 });
 
-mongoose.connection.on('disconnected', function () {//disconnected
-    console.log("Mongoose is disconnected");
-    process.exit(1);
+mongoose.connection.on("disconnected", function () {
+  //disconnected
+  console.log("Mongoose is disconnected");
+  process.exit(1);
 });
 
-mongoose.connection.on('error', function (err) {//any error
-    console.log('Mongoose connection error: ', err);
-    process.exit(1);
+mongoose.connection.on("error", function (err) {
+  //any error
+  console.log("Mongoose connection error: ", err);
+  process.exit(1);
 });
 
-process.on('SIGINT', function () {/////this function will run jst before app is closing
-    console.log("app is terminating");
-    mongoose.connection.close(function () {
-        console.log('Mongoose default connection closed');
-        process.exit(0);
-    });
+process.on("SIGINT", function () {
+  /////this function will run jst before app is closing
+  console.log("app is terminating");
+  mongoose.connection.close(function () {
+    console.log("Mongoose default connection closed");
+    process.exit(0);
+  });
 });
 ////////////////mongodb connected disconnected events///////////////////////////////////////////////

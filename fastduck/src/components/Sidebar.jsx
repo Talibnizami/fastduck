@@ -18,11 +18,12 @@ function Sidebar() {
 {/* <!-- options --> */}
     <div className="option">
         <ul className="subparent">
-            <li className="sub"><i className="fa-solid fa-user"></i> <Link to="/addcustomer">Add Customer</Link></li>
-            <li className="sub">  <i className="fa-solid fa-circle-info"></i><Link to="/showcustomer">Show Customer</Link></li>
-            <li className="sub">  <i className="fa-solid fa-location-dot"></i> <Link to="/addLocation">Add Location</Link></li>
-            <li className="sub">  <i className="fa-solid fa-gear"></i><Link to='/set'>Settings</Link></li>
-            <li className="subsi submit"><Link to='/' className='signoutbtn'>Sign out</Link></li>
+            <Link to="/addcustomer"><li className="sub"><i className="fa-solid fa-user"></i> Add Customer</li></Link>
+            <Link to="/showcustomer"> <li className="sub">  <i className="fa-solid fa-circle-info"></i>Show Customer</li></Link>
+            <Link to="/addLocation"> <li className="sub">  <i className="fa-solid fa-location-dot"></i>Add Location</li></Link>
+            <Link to='/set'><li className="sub">  <i className="fa-solid fa-gear"></i>Settings</li></Link>
+            <Link to='/history'> <li className="sub">  <i className="fa-solid fa-clock-rotate-left"></i>History</li> </Link>
+            <Link to='/' className='signoutbtn'><li className="subsi submit">Sign out</li></Link>
         </ul>
     </div>
 
