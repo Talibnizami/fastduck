@@ -16,7 +16,7 @@ let [Email,setEmail] = useState('');
 let [Phone,setPhone] = useState('');
 let [idnt,setidnt] = useState('');
 
-
+var way = ""
 const getdata= async (event)=>{
 event.preventDefault();
 
