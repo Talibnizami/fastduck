@@ -155,9 +155,6 @@ app.delete("/customer/:id", (req, res) => {
 
 // History  api
 
-// app.post("/customerData", (req, res) => {
-  
-// });
 
 app.get("/historyCustomer", (req, res) => {
   historyModel.find({}, (err, data) => {

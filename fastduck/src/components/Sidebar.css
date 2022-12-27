@@ -14,9 +14,9 @@
     display: flex;
     align-items: center;
     border-radius: 5px;
-    padding: 10px;
+    padding: 14px;
     margin-left: -15px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
 
 }
 .subsi{

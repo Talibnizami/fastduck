@@ -56,6 +56,10 @@ function History() {
               {" "}
               <i className="fa-solid fa-message car"></i> <b>Notes :</b>{ eachProduct.notes}{" "}
             </div>
+            <div>
+              {" "}
+              <i className="fa-solid fa-message car"></i> <b>Createdon :</b>{ eachProduct.createdOn}{" "}
+            </div>
           </div>
 )) } 
 
