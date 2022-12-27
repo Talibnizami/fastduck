@@ -2,6 +2,8 @@
   "name": "fastduck-backend",
   "version": "1.0.0",
   "main": "server.mjs",
+  "description": "",
+ "main": "server.mjs",
   "scripts": {
     "dev": "node --watch server.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"

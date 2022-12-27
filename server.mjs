@@ -176,6 +176,9 @@ app.get("/historyCustomer", (req, res) => {
 
 
 
+const __dirname = path.resolve();
+app.use('/', express.static(path.join(__dirname, './web/build')))
+app.use('*', express.static(path.join(__dirname, './web/build')))
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
